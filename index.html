@@ -4,6 +4,246 @@
   catch.
 </p>
 
-<script src="./src/00-objectball.js"></script>
-<script src="./src/01-simple-debug.js"></script>
-<!-- <script src="./src/02-advanced-debug.js"></script> -->
+<script src="./src/00-objectball.js">
+
+const gameObject = () => {
+
+const teams = {
+  home :
+  {
+    teamName : 'Brooklyn Nets',
+    colors : ['Black', 'White'],
+    players : {
+          'Alan Anderson' :
+            {            
+            number : 0,
+            shoe : 16,
+            points : 22,
+            rebounds : 12,
+            assists : 12,
+            steals : 3,
+            blocks : 1,
+            slamDunks : 1
+            },
+
+          'Reggie Evans':
+            {
+            number : 30,
+            shoe : 14,
+            points : 12,
+            rebounds : 12,
+            assists : 12,
+            steals : 12,
+            blocks : 12,
+            slamDunks : 7
+            },
+
+          'Brook Lopez':
+            {
+            number : 11,
+            shoe : 17,
+            points : 17,
+            rebounds : 19,
+            assists : 10,
+            steals : 3,
+            blocks : 1,
+            slamDunks : 15
+            },
+            
+          'Mason Plumlee': 
+            {
+            number : 1,
+            shoe : 19,
+            points : 26,
+            rebounds : 12,
+            assists : 6,
+            steals : 3,
+            blocks : 8,
+            slamDunks : 5
+            },
+
+          'Jason Terry':
+            {
+            number : 0,
+            shoe : 16,
+            points : 22,
+            rebounds : 12,
+            assists : 12,
+            steals : 3,
+            blocks : 1,
+            slamDunks : 1
+            }
+      }
+    },
+away :
+    {
+      teamName : 'Charlotte Hornets',
+      colors : ['Turquoise','Purple'],
+      players : {
+          'Jeff Adrien':
+            {
+              number : 4,
+              shoe : 18,
+              points : 10,
+              rebounds : 1,
+              assists : 1,
+              steals : 2,
+              blocks : 7,
+              slamDunks : 2
+            },
+          'Bismak Biyombo':
+            {
+              number : 0,
+              shoe : 16,
+              points : 12,
+              rebounds : 4,
+              assists : 7,
+              steals : 7,
+              blocks : 15,
+              slamDunks : 10
+            },
+            'Desagna Diop':
+            {
+              number : 2,
+              shoe : 14,
+              points : 24,
+              rebounds : 12,
+              assists : 12,
+              steals : 4,
+              blocks : 5,
+              slamDunks : 5
+            },
+            'Ben Gordon':
+            {
+              number : 8,
+              shoe : 15,
+              points : 33,
+              rebounds : 3,
+              assists : 2,
+              steals : 1,
+              blocks : 1,
+              slamDunks : 0
+            },
+            'Brendan Haywood':
+            {
+              number : 33,
+              shoe : 15,
+              points : 6,
+              rebounds : 12,
+              assists : 12,
+              steals : 22,
+              blocks : 5,
+              slamDunks : 12
+            }
+      }
+    }
+}
+
+return teams
+}
+
+const numPointScored = (playerName) => {
+  if (playerName === 'Alan Anderson' || playerName === "Reggie Evans" || playerName === "Brook Lopez" || playerName === "Mason Plumlee" || playerName === "Jason Terry") {
+    let teamObject = gameObject()
+    let playerPoints = teamObject.home.players[playerName].points
+    return playerPoints
+  } 
+  else if (playerName === 'Jeff Adrien' || playerName === 'Bismak Biyombo' || playerName === 'Desagna Diop' || playerName === 'Ben Gordon' || playerName === 'Brendan Haywood') {
+    let teamObject = gameObject()
+
+    let playerPoints = teamObject.away.players[playerName].points
+    return playerPoints
+  }
+}
+
+
+
+
+const shoeSize = playerName => {
+  if (playerName === 'Alan Anderson' || playerName === "Reggie Evans" || playerName === "Brook Lopez" || playerName === "Mason Plumlee" || playerName === "Jason Terry") {
+    let teamObject = gameObject()
+    let playershoeSize = teamObject.home.players[playerName].shoe
+    return playershoeSize
+  } 
+  else if (playerName === 'Jeff Adrien' || playerName === 'Bismak Biyombo' || playerName === 'Desagna Diop' || playerName === 'Ben Gordon' || playerName === 'Brendan Haywood') {
+    let teamObject = gameObject()
+    let playershoeSize = teamObject.away.players[playerName].shoe
+    return playershoeSize
+  }
+}
+
+
+
+const teamColors = teamName => {
+  if (teamName === 'home') {
+    let teamObject = gameObject(),
+    teamColor = teamObject.home.colors
+    return `Home team colors : ${teamColor}`
+  } else if ( teamName === 'away') {
+    let teamObject = gameObject(),
+    teamColor = teamObject.away.colors
+    return teamColor
+  }
+}
+
+
+const teamNames = () => {
+  let teamObject = gameObject()
+  let teamNamesArr = []
+  for (const team in teamObject) {
+    teamNamesArr.push(team)
+  }
+  return teamNamesArr
+}
+
+
+
+const playerNumbers = teamName => {
+    if (teamName === 'home') {
+    let homeObject = gameObject().home.players
+    let newArr = []
+    for ( const player in homeObject) {
+      newArr.push(homeObject[player].number)
+    }
+    return newArr
+  } 
+  else if ( teamName === 'away') {
+    let awayObject = gameObject().away.players
+    let newArr = []
+    for ( const player in awayObject) {
+      newArr.push(awayObject[player].number)
+    }
+    return newArr
+  }
+}
+
+
+
+const playerStats = (playerName) => {
+  if (playerName === 'Alan Anderson' || playerName === "Reggie Evans" || playerName === "Brook Lopez" || playerName === "Mason Plumlee" || playerName === "Jason Terry") {
+    let teamObject = gameObject()
+    let statsForPlayer = teamObject.home.players[playerName]
+    return statsForPlayer
+  } 
+  else if (playerName === 'Jeff Adrien' || playerName === 'Bismak Biyombo' || playerName === 'Desagna Diop' || playerName === 'Ben Gordon' || playerName === 'Brendan Haywood') {
+    let teamObject = gameObject()
+    let statsForPlayer = teamObject.away.players[playerName]
+    return statsForPlayer
+  }
+}
+
+
+
+
+const bigShoeRebounds = () => {
+  let biggestShoeSizePlayer = 'Mason Plumlee',
+  playerRebounds = gameObject().home.players[biggestShoeSizePlayer].rebounds
+  return playerRebounds
+}
+
+
+</script>
+
+<script src="./src/01-simple-debug.js">
+</script>
+<script src="./src/02-advanced-debug.js"></script>
